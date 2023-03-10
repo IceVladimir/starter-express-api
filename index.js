@@ -4,6 +4,9 @@ var token = ""
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const CharacterAI = require('node_characterai');
+const characterAI = new CharacterAI();
+
 app.get('/', (req, res) => {
     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 })
