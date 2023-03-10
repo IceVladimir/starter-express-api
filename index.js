@@ -24,7 +24,7 @@ app.post('/', function(req, res) {
 		characterAI.setAuthenticated(true)
 		characterAI.setToken(req.body.auth)
 	}
-    const characterId = "vYfj3OpCxv7zSyQXdcC3oWMz2622lLzF1LECbMpWyzI"
+    const characterId = "v3lyisRb7INyd5BUdUKEKS1-MUTBom9dY9qV9-2ioTE"
     const chat = await characterAI.createOrContinueChat(characterId);
     const response = await chat.sendAndAwaitResponse(req.body.msg, true)
 
