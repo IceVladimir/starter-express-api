@@ -1,30 +1,40 @@
-const express = require('express')
-const app = express()
-var token = ""
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+var program = require('commander');
+var exec = require('child_process').exec;
 
-app.get('/', (req, res) => {
-    res.json(["Tony","Lisa","Michael","Ginger","Food"]);
-})
-
-app.post('/', function(req, res) {
-
-
-(async() => {
-    if (req.body.auth == true){
-    characterAI.unauthenticate()
-    token = await characterAI.authenticateAsGuest();
+var run = function(cmd){
+  var child = exec(cmd, function (error, stdout, stderr) {
+    if (stderr !== null) {
+      console.log('' + stderr);
     }
-    const characterId = "v3lyisRb7INyd5BUdUKEKS1-MUTBom9dY9qV9-2ioTE"
-    const chat = await characterAI.createOrContinueChat(characterId);
-    const response = await chat.sendAndAwaitResponse(req.body.msg, true)
-
-  res.send({
-    'Answer': response.text,
+    if (stdout !== null) {
+      console.log('' + stdout);
+    }
+    if (error !== null) {
+      console.log('' + error);
+    }
   });
-})();
+};
 
+program
+  .version('0.1.3')
+  .option('i, --install ', 'install packages')
+  .parse(process.argv);
+
+
+
+if (program.install) {
+  run('npm install node_characterai');
+}
+
+
+var count = 0;
+
+
+// If parameter is missing or not supported, display help
+program.options.filter(function (option) {
+  if(!(option.short == process.argv[2]))
+    count++
 });
 
-app.listen(process.env.PORT || 3000)
+if(count == program.options.length)
+  program.help();
