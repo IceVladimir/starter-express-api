@@ -8,7 +8,7 @@ app.all('/', (req, res) => {
     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 })
 
-app.post('/api', function(req, res) {
+app.post('/', function(req, res) {
 
 
 (async() => {
