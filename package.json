@@ -1,5 +1,5 @@
 {
-  "name": "starter-express-api",
+  "name": "apitest2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyclic-software/starter-express-api.git"
+    "url": "git+https://github.com/cyclic-software/apitest2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cyclic-software/starter-express-api/issues"
+    "url": "https://github.com/cyclic-software/apitest2/issues"
   },
-  "homepage": "https://github.com/cyclic-software/starter-express-api#readme",
+  "homepage": "https://github.com/cyclic-software/apitest2#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
